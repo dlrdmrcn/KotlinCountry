@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dilara.kotlincountry.R
 import com.dilara.kotlincountry.databinding.ItemCountryBinding
 import com.dilara.kotlincountry.model.Country
+import com.dilara.kotlincountry.util.downloadUrl
+import com.dilara.kotlincountry.util.placeholderProgressBar
 
 class CountryAdapter (val countryList: ArrayList<Country>) : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>(){
 
@@ -29,6 +31,10 @@ class CountryAdapter (val countryList: ArrayList<Country>) : RecyclerView.Adapte
 //        holder.view.region.text = countryList(position).countryRegion
 //        holder.view..setOnClickListener{val action  = FeedFragmentDirections.actionFeedFragmentToCountryFragment()
 //    Navigation.findNavController(it).navigate(action)}
+
+//        holder.view.imageView.downloadFromUrl(countryList(position).imageUrl,
+//            placeholderProgressBar(holder.view.context)
+//        )
 
 
 
