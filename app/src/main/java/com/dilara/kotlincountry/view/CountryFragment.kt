@@ -6,9 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.dilara.kotlincountry.databinding.FragmentCountryBinding
+import com.dilara.kotlincountry.util.downloadUrl
+import com.dilara.kotlincountry.util.placeholderProgressBar
 import com.dilara.kotlincountry.viewmodel.CountryViewModel
 
 class CountryFragment : Fragment() {
@@ -33,13 +34,14 @@ class CountryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        viewModel = ViewModelProviders.of(this).get(CountryViewModel::class.java)
-        viewModel.getDataFromRoom()
-
         arguments?.let {
             countryUuid = CountryFragmentArgs.fromBundle(it).androidUuid
         }
+
+        viewModel = ViewModelProviders.of(this).get(CountryViewModel::class.java)
+        viewModel.getDataFromRoom(countryUuid)
+
+
         observeLiveData()
     }
     private fun observeLiveData () {
@@ -50,6 +52,10 @@ class CountryFragment : Fragment() {
                 binding.countryCurrency.text = country.countryCurrency
                 binding.countryLanguage.text = country.countryLanguage
                 binding.countryRegion.text = country.countryRegion
+                context?.let {
+                    binding.countryImage.downloadUrl(country.imageUrl, placeholderProgressBar(it))
+                }
+
             }
         }
 
