@@ -7,7 +7,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.dilara.kotlincountry.R
 
-fun ImageView.downloadUrl(url: String? , progressDrawable: CircularProgressDrawable){
+fun ImageView.downloadFromUrl(url: String? , progressDrawable: CircularProgressDrawable){
 
     val options = RequestOptions()
         .placeholder(progressDrawable)

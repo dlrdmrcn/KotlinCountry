@@ -7,8 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dilara.kotlincountry.R
 import com.dilara.kotlincountry.databinding.ItemCountryBinding
 import com.dilara.kotlincountry.model.Country
-import com.dilara.kotlincountry.util.downloadUrl
-import com.dilara.kotlincountry.util.placeholderProgressBar
+
 
 class CountryAdapter (val countryList: ArrayList<Country>) : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>(){
 

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.dilara.kotlincountry.databinding.FragmentCountryBinding
-import com.dilara.kotlincountry.util.downloadUrl
+import com.dilara.kotlincountry.util.downloadFromUrl
 import com.dilara.kotlincountry.util.placeholderProgressBar
 import com.dilara.kotlincountry.viewmodel.CountryViewModel
 
@@ -53,7 +53,7 @@ class CountryFragment : Fragment() {
                 binding.countryLanguage.text = country.countryLanguage
                 binding.countryRegion.text = country.countryRegion
                 context?.let {
-                    binding.countryImage.downloadUrl(country.imageUrl, placeholderProgressBar(it))
+                    binding.countryImage.downloadFromUrl(country.imageUrl, placeholderProgressBar(it))
                 }
 
             }
