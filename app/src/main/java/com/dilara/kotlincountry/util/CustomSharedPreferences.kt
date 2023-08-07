@@ -9,7 +9,7 @@ class CustomSharedPreferences {
 
     companion object{
 
-        private val PREFERENCES_TİME = "preferences_time"
+        private val PREFERENCES_TIME = "preferences_time"
         private var sharedPreferences : SharedPreferences? = null
 
         @Volatile private var instance: CustomSharedPreferences? = null
@@ -30,7 +30,10 @@ class CustomSharedPreferences {
 
     fun saveTime (time : Long){
         sharedPreferences?.edit(commit = true){
-            putLong(PREFERENCES_TİME, time)
+            putLong(PREFERENCES_TIME, time)
         }
     }
+
+    fun getTime() = sharedPreferences?.getLong(PREFERENCES_TIME, 0)
+
 }
