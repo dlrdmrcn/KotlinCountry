@@ -12,12 +12,9 @@ import com.dilara.kotlincountry.databinding.ItemCountryBinding
 import com.dilara.kotlincountry.model.Country
 import com.dilara.kotlincountry.view.FeedFragmentDirections
 
-
-
 class CountryAdapter (val countryList: ArrayList<Country>) : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>(), CountryClickListener {
 
     class CountryViewHolder(val view : ItemCountryBinding) :RecyclerView.ViewHolder(view.root) {
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryViewHolder {
@@ -37,16 +34,18 @@ class CountryAdapter (val countryList: ArrayList<Country>) : RecyclerView.Adapte
     }
 
     fun updateCountryList(newCountryList: List<Country>){
+
         countryList.clear()
         countryList.addAll(newCountryList)
         notifyDataSetChanged()
     }
 
     override fun onCountryClicked(v: View) {
+
         val tvCountryUuid = v.findViewById<TextView>(R.id.countryUuidText)
         val uuid = tvCountryUuid.text.toString().toInt()
-
         val action = FeedFragmentDirections.actionFeedFragmentToCountryFragment(uuid)
+
         Navigation.findNavController(tvCountryUuid).navigate(action)
     }
 }

@@ -18,7 +18,6 @@ class FeedFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -38,7 +37,6 @@ class FeedFragment : Fragment() {
 
         binding.countryList.layoutManager = LinearLayoutManager(context)
         binding.countryList.adapter = countryAdapter
-
 
         binding.swipeRefreshLayout.setOnRefreshListener {
             binding.countryList.visibility = View.GONE
